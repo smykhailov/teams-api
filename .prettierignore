@@ -1,0 +1,22 @@
+# infra
+.circleci/
+.github/
+
+# editors
+.idea/
+.vscode/
+
+# build
+build/
+coverage/
+
+# tools
+tools/
+
+# images
+**/*.svg
+
+# assets
+src/assets/
+**/assets/**
+**/assets/**/*.*

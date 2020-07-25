@@ -1,6 +1,6 @@
 {
-  "short_name": "MS Teams GraphAPI",
-  "name": "Examples how to use MS Teams GraphAPI",
+  "short_name": "MS Teams Graph API",
+  "name": "Examples how to use MS Teams Graph API",
   "icons": [
     {
       "src": "favicon.ico",

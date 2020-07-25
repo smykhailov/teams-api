@@ -3,7 +3,7 @@ import React from 'react';
 function App() {
   return (
     <div>
-      <h1>MS Teams GraphAPI Example</h1>
+      <h1>MS Teams Graph API Example</h1>
     </div>
   );
 }

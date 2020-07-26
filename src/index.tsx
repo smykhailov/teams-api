@@ -3,15 +3,17 @@ import ReactDOM from 'react-dom';
 
 import { Provider, teamsTheme } from '@fluentui/react-northstar';
 
-import App from 'components/app';
 import * as serviceWorker from './serviceWorker';
 
+import App from 'components/app';
+import { AppContextProvider } from 'app-context';
+
 ReactDOM.render(
-  <React.StrictMode>
+  <AppContextProvider>
     <Provider theme={teamsTheme}>
       <App />
     </Provider>
-  </React.StrictMode>,
+  </AppContextProvider>,
   document.getElementById('root')
 );
 

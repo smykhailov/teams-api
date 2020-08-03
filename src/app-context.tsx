@@ -10,11 +10,18 @@ import { MSALAuthenticationProviderOptions } from '@microsoft/microsoft-graph-cl
 // An Optional options for initializing the MSAL @see https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options
 const msalConfig = {
   auth: {
-    clientId: '7890f911-1560-403b-9656-5b2d5e6f5119', // Client Id of the registered application
+    clientId: '985f0ded-6e91-43d4-8dc1-484fa50760cf', // Client Id of the registered application
     redirectUri: 'http://localhost:3000/',
   },
 };
-const graphScopes = ['User.Read', 'Chat.Read', 'Chat.ReadWrite']; // An array of graph scopes
+const graphScopes = [
+  'User.Read',
+  'Chat.Read',
+  'Chat.ReadWrite',
+  'Directory.ReadWrite.All',
+  'Directory.Read.All',
+  'Directory.AccessAsUser.All',
+]; // An array of graph scopes
 
 // Important Note: This library implements loginPopup and acquireTokenPopup flow, remember this while initializing the msal
 // Initialize the MSAL @see https://github.com/AzureAD/microsoft-authentication-library-for-js#1-instantiate-the-useragentapplication

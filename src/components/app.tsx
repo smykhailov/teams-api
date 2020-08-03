@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, Segment, FlexItem, Text } from '@fluentui/react-northstar';
 
-import ChatList from './chat/chat-list';
+import TeamsList from './teams/teams-list';
 import { Me } from './auth/me';
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
         <Flex gap="gap.small" vAlign="stretch">
           <FlexItem size="300px">
             <Segment>
-              <ChatList />
+              <TeamsList />
             </Segment>
           </FlexItem>
           <FlexItem grow={1}>

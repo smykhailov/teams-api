@@ -1,12 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { List, Flex, Text, Avatar } from '@fluentui/react-northstar';
+import { useAppContext } from 'app-context';
 
-const ChatList = () => {
+import * as MSG from '@microsoft/microsoft-graph-types';
+
+const TeamsList = () => {
+  const { client } = useAppContext();
   const [selectedItemIdx, setSelectedItemIdx] = useState(-1);
+  const [error, setError] = useState(null);
+  const [teamsList, setTeamsList] = useState<MSG.Team[]>([]);
+
+  useEffect(() => {
+    const getUserDetails = async () => {
+      try {
+        const teams: [MSG.Team] = await client.api('/me/joinedTeams').get();
+        setTeamsList(teams);
+        console.warn(teams);
+      } catch (e) {
+        setError(e.message);
+      }
+    };
+
+    getUserDetails();
+  });
+
+  if (error) {
+    return <Text color="red">{error}</Text>;
+  }
 
   return (
     <Flex column>
-      <Text as="h4">Chats</Text>
+      <Text as="h4">Teams</Text>
       <List
         selectable
         selectedIndex={selectedItemIdx}
@@ -46,4 +70,4 @@ const items = [
   },
 ];
 
-export default ChatList;
+export default TeamsList;

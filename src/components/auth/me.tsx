@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Text } from '@fluentui/react-northstar';
 import { useAppContext } from 'app-context';
 
+import * as MSG from '@microsoft/microsoft-graph-types';
+
 export const Me = () => {
   const { client } = useAppContext();
   const [userName, setUserName] = useState('');
@@ -10,8 +12,8 @@ export const Me = () => {
   useEffect(() => {
     const getUserDetails = async () => {
       try {
-        const userDetails = await client.api('/me').get();
-        setUserName(userDetails.displayName);
+        const userDetails: MSG.Person = await client.api('/me').get();
+        setUserName(userDetails.displayName || 'Unknown');
       } catch (e) {
         setError(e.message);
       }
